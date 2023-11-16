@@ -1,10 +1,34 @@
 // components/ShowDetails.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { fetchShowById } from '../services/api';
 
 const ShowDetails = ({ match }) => {
   const { params } = match;
-  // Fetch show details using params.showId and display the information
-  return <div>Show Details for Show ID: {params.showId}</div>;
+  const [show, setShow] = useState(null);
+
+  useEffect(() => {
+    const fetchShowDetails = async () => {
+      try {
+        const response = await fetchShowById(params.showId);
+        setShow(response.data);
+      } catch (error) {
+        console.error('Error fetching show details:', error);
+      }
+    };
+
+    fetchShowDetails();
+  }, [params.showId]);
+
+  if (!show) {
+    return <p>Loading...</p>;
+  }
+
+  return (
+    <div>
+      <h2>{show.title}</h2>
+      {/* Display show details and seasons */}
+    </div>
+  );
 };
 
 export default ShowDetails;
