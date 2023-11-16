@@ -1,13 +1,9 @@
+// services/api.js
 import axios from 'axios';
 
-const apiUrl = 'https://podcast-api.netlify.app/shows	';
+const api = axios.create({
+  baseURL: 'https://podcast-api.netlify.app',
+});
 
-export const fetchPodcasts = () => {
-  return axios.get(`${apiUrl}/shows`)
-    .then(response => response.data);
-};
-
-export const fetchPodcast = (id) => {
-  return axios.get(`${apiUrl}/id/${id}`)
-    .then(response => response.data);
-};
+export const fetchShows = () => api.get('/shows');
+export const fetchShowById = (id) => api.get(`/id/${id}`);

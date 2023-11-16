@@ -20,6 +20,24 @@ ul {
 li {
   margin-bottom: 10px;
 }
+/*Navbar styles*/
+
+.App {
+  padding: 20px;
+}
+
+.navbar {
+  background-color: #f2f2f2;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  padding: 5px;
+}
+
 
 /* Podcast list styles */
 
