@@ -1,9 +1,7 @@
 // components/ShowDetails.js
 import React, { useEffect, useState } from 'react';
 import { fetchShowById } from '../services/api';
-import Episode from './Episode';
-
-
+import PodcastList from './PodcastList';
 
 const ShowDetails = ({ match }) => {
   const { params } = match;
@@ -29,14 +27,8 @@ const ShowDetails = ({ match }) => {
   return (
     <div>
       <h2>{show.title}</h2>
-      {show.seasons.map((season) => (
-        <div key={season.number}>
-          <h3>Season {season.number}</h3>
-          {season.episodes.map((episode) => (
-            <Episode key={episode.id} episode={episode} />
-          ))}
-        </div>
-      ))}
+      {/* Display other show details */}
+      <PodcastList podcasts={show.previews} />
     </div>
   );
 };

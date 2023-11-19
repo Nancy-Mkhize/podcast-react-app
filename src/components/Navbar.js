@@ -1,13 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const Navbar = () => {
-  return (
-    <nav>
-      <Link to="/">Home</Link>
-      <Link to="/about">About</Link>
-      <Link to="/contact">Contact</Link>
-    </nav>
-  );
+export default function Navbar() {
+  return <nav className="nav">
+ <img src="../images/podcasts.png" />
+<ul>
+  
+  <button className="btn next-btn" navigate = "true">
+  Back
+ </button>
+</ul>
+  </nav>
+  
 }
-export default Navbar;
